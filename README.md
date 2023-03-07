@@ -8,6 +8,12 @@ It is using VueJS as the framework and the Composition API.
 
 Follow the [Dev Log](./dev-log.md).
 
+## Notes
+
+How to scan images of Sudoku puzzles?
+
+https://medium.com/mlearning-ai/augmented-reality-sudoku-solver-part-ii-cdfc035a415c
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
