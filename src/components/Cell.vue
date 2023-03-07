@@ -1,4 +1,7 @@
 <script setup>
+
+import { numbers, config } from '../state'
+
 defineProps({
 })
 
@@ -25,15 +28,14 @@ const showSolNum = false;
 .cell {
   width: 50px;
   height: 50px;
-  box-sizing: content-box;
+  box-sizing: content-box; /* This prevents the addition of borders shrinking the content box size */
   display: grid;
-  position: relative;
+  position: relative; /* This is to allow the absolute positioning of child divs to work: but it doesn't seem to be required */
   justify-content: center;
   align-content: center;
   background-color: bisque;
 }
 .big-num {
-  /*display: none;*/
   font-weight: bold;
   font-size: 20pt;
 }

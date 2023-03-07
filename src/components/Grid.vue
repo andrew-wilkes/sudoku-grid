@@ -11,6 +11,7 @@
 
 <script setup>
 import Cell from './Cell.vue'
+import { numbers, config } from '../state'
 
 </script>
 
