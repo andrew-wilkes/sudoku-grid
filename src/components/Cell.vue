@@ -1,26 +1,39 @@
 <script setup>
 
 import { numbers, config } from '../state'
+import { computed } from 'vue'
 
-defineProps({
+const props = defineProps({
+  idx: Number
 })
 
-const showBigNum = true;
-const showNumPair = false;
-const showNumGrid = false;
 const showSum = false;
-const showSolNum = false;
+
+function candidate(n) {
+  return numbers.candidates[props.idx].indexOf('' + n) > -1 ? n : ''
+}
+
+const isSelected = computed(() => {
+  return config.selected && config.selectedCell.idx == props.idx
+})
+
+const isPeer = computed(() => {
+  return config.peers && config.selectedCell.peers.indexOf(props.idx + '') > -1;
+})
+
 </script>
 
 <template>
-  <div class="cell">
-    <div class="sol-num" v-if="showSolNum">8</div>
-    <div class="big-num" v-if="showBigNum">8</div>
-    <div class="num-pair" v-if="showNumPair">8 9</div>
-    <div class="num-grid" v-if="showNumGrid">
-      <div class="grid-num" v-for="n in 9">{{ n }}</div>
-    </div>
+  <div class="cell" :class="{ selected: isSelected, highlighted: isPeer }">
     <div class="sum" v-if="showSum">14</div>
+    <div class="sol-num" v-if="config.showSolution">8</div>
+    <div class="big-num" v-else-if="numbers.grid[idx] > 0" >{{ idx }}</div>
+    <div class="num-pair" v-else-if="numbers.candidates[idx].length < 3">
+      <span v-for="n in numbers.candidates[idx]">{{ n }}</span>
+    </div>
+    <div class="num-grid" v-else>
+      <div class="grid-num" v-for="n in 9">{{ candidate(n) }}</div>
+    </div>
   </div>
 </template>
 
@@ -34,6 +47,7 @@ const showSolNum = false;
   justify-content: center;
   align-content: center;
   background-color: bisque;
+  cursor: pointer;
 }
 .big-num {
   font-weight: bold;
@@ -46,9 +60,16 @@ const showSolNum = false;
 }
 .grid-num {
   width: 16px;
+  height: 16px;
   text-align: center;
 }
 .sum {
   position: absolute;
+}
+.selected {
+  background-color: rgb(209, 250, 250);
+}
+.highlighted {
+  background-color: rgb(238, 255, 255);
 }
 </style>

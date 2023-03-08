@@ -6,15 +6,8 @@ export const numbers = reactive({
     solution: []
 })
 
-const selected = {
-    idx: -1,
-    bid: -1,
-    cid: -1,
-    peers: []
-  }
-
 export const config = reactive({
-    selected: selected,
+    selectedCell: { idx: -1, peers: [] },
     groups: [],
     colors: [0xd0b1fc, 0xf7c5dd, 0xfaedc7, 0x98e2f7, 0xcaeebe, 0xff0000, 0x00ff00, 0x0000ff],
     showSolution: false,
@@ -33,6 +26,7 @@ export const resetNumbers = () => {
     numbers.solution = []
     config.showSolution = false
     config.showWrong = false
+    numbers.candidates[1] = "2789"
 }
 
 resetNumbers()
