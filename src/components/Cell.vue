@@ -18,7 +18,18 @@ const isSelected = computed(() => {
 })
 
 const isPeer = computed(() => {
-  return config.peers && config.selectedCell.peers.indexOf(props.idx + '') > -1;
+  return config.peers && config.selectedCell.peers.indexOf(props.idx + '') > -1
+})
+
+const isGiven = computed(() => {
+  return numbers.grid[props.idx] > 10
+})
+
+const gridValue = computed(() => {
+    let n = numbers.grid[props.idx]
+    if (n == 0) return ""
+    if (n > 10) return n - 10
+    return n
 })
 
 </script>
@@ -26,8 +37,8 @@ const isPeer = computed(() => {
 <template>
   <div class="cell" :class="{ selected: isSelected, highlighted: isPeer }">
     <div class="sum" v-if="showSum">14</div>
-    <div class="sol-num" v-if="config.showSolution">8</div>
-    <div class="big-num" v-else-if="numbers.grid[idx] > 0" >{{ idx }}</div>
+    <div class="sol-num" v-if="config.showSolution" :class="{ given: isGiven }">{{ numbers.solution[idx] }}</div>
+    <div class="big-num" v-else-if="numbers.grid[idx] > 0" :class="{ given: isGiven }">{{ gridValue }}</div>
     <div class="num-pair" v-else-if="numbers.candidates[idx].length < 3">
       <span v-for="n in numbers.candidates[idx]">{{ n }}</span>
     </div>
@@ -71,5 +82,8 @@ const isPeer = computed(() => {
 }
 .highlighted {
   background-color: rgb(238, 255, 255);
+}
+.given {
+  color: rgb(71, 65, 31);
 }
 </style>
