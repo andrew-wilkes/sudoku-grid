@@ -35,12 +35,5 @@ function cellClicked(idx) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: min-content;
-    background-color: black;
-    gap: 1px;
-  }
-
-  .grid {
-    gap: 2px;
-    border: 2px solid black;
   }
 </style>
