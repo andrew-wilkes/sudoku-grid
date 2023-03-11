@@ -26,7 +26,7 @@ export const resetNumbers = () => {
     numbers.solution = []
     config.showSolution = false
     config.showWrong = false
-    numbers.candidates[1] = "2789"
+    numbers.candidates[1] = "278"
 }
 
 resetNumbers()

@@ -5,18 +5,24 @@
     cursor: pointer;
 }
 
+.num-grid {
+    font-size: 8pt;
+    gap: 1px;
+}
+
+.num-grid * {
+    width: 16px; /* Ensure that width * 3 + 2 * gap = cell width. Same for height*/
+    height: 16px;
+    background-color: cornsilk;
+}
+
+.num-pair * {
+    background-color: cornsilk;
+}
+
 .big-num {
     font-weight: bold;
     font-size: 20pt;
-}
-
-.num-grid {
-    font-size: 8pt;
-}
-
-.grid-num {
-    width: 16px;
-    height: 16px;
 }
 
 .selected {

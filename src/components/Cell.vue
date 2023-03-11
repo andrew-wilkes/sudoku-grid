@@ -43,7 +43,7 @@ const gridValue = computed(() => {
       <span v-for="n in numbers.candidates[idx]">{{ n }}</span>
     </div>
     <div class="num-grid" v-else>
-      <div class="grid-num" v-for="n in 9">{{ candidate(n) }}</div>
+      <div v-for="n in 9">{{ candidate(n) }}</div>
     </div>
   </div>
 </template>
@@ -59,8 +59,10 @@ const gridValue = computed(() => {
   display: flex;
   flex-wrap: wrap;
 }
-.grid-num {
-  text-align: center;
+.num-grid * {
+  display: grid;
+  align-content: center;
+  justify-content: center;
 }
 .sum {
   position: absolute;
