@@ -70,3 +70,25 @@ This stores:
 * the selected cell data
 * options that affect how the numbers are displayed
 * cell group data
+
+## Number highlighting and state logic
+
+### Click count
+
+In order to seperate the view from the logic, the grid should recact to changes in state data and not make logical decisions as to how the game state should be affected..
+
+So the logic to reset the selected cell was removed and replaced with a clickCount property on the selected cell data. This allows external logic to react to changes in this value, and determine what to do.
+
+### Color mapping to candidate numbers
+2023-03-13
+
+A candidateColorMap property was added to the config state. This is an array of objects, one for each cell. The object maps numbers to values for the hue of a color. Only included numbers get their background color set.
+
+Example object:
+{ 1: 0, 6: 120 }
+
+This maps a red color to the number 1 for the cell and a yellow color to the number 6.
+
+The cell had a computed property to set the background color style using the hsl() function.
+
+And, an sl property was added to the config to set the saturation and lightness values e.g. sl: '80%,70%'
