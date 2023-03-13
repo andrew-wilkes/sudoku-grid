@@ -1,7 +1,7 @@
 .cell {
     width: 50px;
     height: 50px;
-    background-color: rgb(129, 155, 136);
+    background-color: rgb(209, 209, 209);
     cursor: pointer;
 }
 
@@ -13,11 +13,6 @@
 .num-grid * {
     width: 16px; /* Ensure that width * 3 + 2 * gap = cell width. Same for height*/
     height: 16px;
-    background-color: cornsilk;
-}
-
-.num-pair * {
-    background-color: cornsilk;
 }
 
 .big-num {
@@ -45,4 +40,5 @@
 .grid {
     gap: 2px;
     border: 2px solid black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
