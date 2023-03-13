@@ -7,7 +7,7 @@ export const numbers = reactive({
 })
 
 export const config = reactive({
-    selectedCell: { idx: -1, peers: [] },
+    selectedCell: { idx: -1, peers: [], clickCount: 0 },
     candidateColorMap: [],
     groups: [],
     sl: '80%,70%',
@@ -25,7 +25,7 @@ export const resetNumbers = () => {
     numbers.grid = Array(81).fill(0)
     numbers.candidates = Array(81).fill('')
     numbers.solution = []
-    config.selectedCell = { idx: -1, peers: [] }
+    config.selectedCell = { idx: -1, peers: [], clickCount: 0 }
     config.candidateColorMap = Array(81).fill({})
     config.groups = []
     config.showSolution = false

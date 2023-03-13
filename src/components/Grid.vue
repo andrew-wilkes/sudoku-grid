@@ -11,7 +11,7 @@
 
 <script setup>
 import Cell from './Cell.vue'
-import { numbers, config } from '../state'
+import { config } from '../state'
 import { getPeers } from '../utils'
 
 function getIndex(box, cell) {
@@ -21,11 +21,11 @@ function getIndex(box, cell) {
 function cellClicked(idx) {
   let csl = config.selectedCell
   if (csl.idx == idx) {
-    csl.idx = -1
-    csl.peers = []
+    csl.clickCount++
   } else {
     csl.idx = idx
     csl.peers = getPeers(idx)
+    csl.clickCount = 1
   }
 }
 </script>
